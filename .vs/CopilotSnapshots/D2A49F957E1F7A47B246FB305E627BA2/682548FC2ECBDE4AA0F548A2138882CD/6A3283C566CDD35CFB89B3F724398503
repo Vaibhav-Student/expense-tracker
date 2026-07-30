@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Management - Expense Tracker</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../Content/css/style.css">
+</head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fa-solid fa-wallet"></i> Expense Tracker</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="Dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+                </li>
+                <li class="active">
+                    <a href="Income.html"><i class="fa-solid fa-arrow-turn-down text-success"></i> Income</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-solid fa-arrow-trend-up text-danger"></i> Expenses</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-solid fa-tags"></i> Categories</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-solid fa-chart-pie"></i> Reports</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-solid fa-circle-info"></i> About</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar -->
+
+        <!-- Page Content -->
+        <div id="content">
+
+            <!-- Top Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <span class="navbar-brand mb-0 h1">Income Management</span>
+
+                    <div class="ms-auto d-flex align-items-center">
+                        <span class="me-3 text-muted d-none d-md-inline" id="currentDate">Date</span>
+
+                        <!-- Notifications -->
+                        <div class="nav-item position-relative me-3">
+                            <a class="nav-link text-secondary" href="#">
+                                <i class="fa-solid fa-bell fs-5"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    3+
+                                </span>
+                            </a>
+                        </div>
+
+                        <!-- Settings -->
+                        <div class="nav-item">
+                            <a class="nav-link text-secondary" href="#">
+                                <i class="fa-solid fa-gear fs-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <div class="container-fluid p-4">
+
+                <!-- Page Header -->
+                <div class="dashboard-header mb-4 d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2>Income Management</h2>
+                        <p class="mb-0 text-muted">Manage all your income records in one place.</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#addIncomeForm" aria-expanded="false" aria-controls="addIncomeForm">
+                            <i class="fa-solid fa-plus"></i> Add Income
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Summary Cards Row -->
+                <div class="row mb-4">
+                    <!-- Total Income Card -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-primary h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Total Income</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">₹35,000</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-sack-dollar fa-2x text-gray-300" style="color: #dddfeb;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- This Month Income Card -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-success h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            This Month Income</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">₹20,000</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-calendar-check fa-2x text-gray-300" style="color: #dddfeb;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Today's Income Card -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-warning h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                            Today's Income</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">₹2,000</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-calendar-day fa-2x text-gray-300" style="color: #dddfeb;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Income Entries Card -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-info h-100 py-2" style="border-left: 4px solid #36b9cc;">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1" style="color: #36b9cc;">
+                                            Total Income Entries</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">8</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-list-ol fa-2x text-gray-300" style="color: #dddfeb;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Income Form (Collapsible) -->
+                <div class="collapse mb-4" id="addIncomeForm">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-white py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Add New Income</h6>
+                        </div>
+                        <div class="card-body">
+                            <form id="incomeForm">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="incomeAmount" class="form-label">Income Amount (₹)</label>
+                                        <input type="number" class="form-control" id="incomeAmount" placeholder="Enter amount" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="incomeSource" class="form-label">Income Source</label>
+                                        <select class="form-select" id="incomeSource" required>
+                                            <option value="" selected disabled>Select Source</option>
+                                            <option value="Salary">Salary</option>
+                                            <option value="Freelancing">Freelancing</option>
+                                            <option value="Business">Business</option>
+                                            <option value="Bonus">Bonus</option>
+                                            <option value="Investment">Investment</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="incomeDate" class="form-label">Date</label>
+                                        <input type="date" class="form-control" id="incomeDate" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="incomeDescription" class="form-label">Description</label>
+                                        <input type="text" class="form-control" id="incomeDescription" placeholder="Enter description">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end gap-2">
+                                    <button type="reset" class="btn btn-secondary">Clear</button>
+                                    <button type="submit" class="btn btn-primary">Save Income</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search and Filter / Table Section -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header py-3 bg-white d-flex flex-column flex-md-row align-items-md-center justify-content-between border-bottom">
+                        <h6 class="m-0 font-weight-bold text-primary mb-3 mb-md-0">Income Records</h6>
+
+                        <div class="d-flex flex-column flex-md-row gap-2">
+                            <!-- Search -->
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search by Income Source...">
+                                <button class="btn btn-outline-secondary" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                            <!-- Filter -->
+                            <select class="form-select w-auto">
+                                <option value="All">All</option>
+                                <option value="Salary">Salary</option>
+                                <option value="Freelancing">Freelancing</option>
+                                <option value="Business">Business</option>
+                                <option value="Bonus">Bonus</option>
+                                <option value="Investment">Investment</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped align-middle mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th class="ps-4">Income ID</th>
+                                        <th>Date</th>
+                                        <th>Source</th>
+                                        <th>Amount</th>
+                                        <th>Description</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="ps-4 fw-bold text-muted">1</td>
+                                        <td>20-07-2026</td>
+                                        <td><span class="badge bg-primary">Salary</span></td>
+                                        <td class="fw-bold text-success">₹25,000</td>
+                                        <td>Monthly Salary</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-sm btn-info text-white" title="View"><i class="fa-solid fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-warning text-dark" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                                            <button class="btn btn-sm btn-danger text-white" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ps-4 fw-bold text-muted">2</td>
+                                        <td>25-07-2026</td>
+                                        <td><span class="badge bg-success">Freelancing</span></td>
+                                        <td class="fw-bold text-success">₹5,000</td>
+                                        <td>Website Project</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-sm btn-info text-white" title="View"><i class="fa-solid fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-warning text-dark" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                                            <button class="btn btn-sm btn-danger text-white" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ps-4 fw-bold text-muted">3</td>
+                                        <td>28-07-2026</td>
+                                        <td><span class="badge bg-info">Bonus</span></td>
+                                        <td class="fw-bold text-success">₹3,000</td>
+                                        <td>Performance Bonus</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-sm btn-info text-white" title="View"><i class="fa-solid fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-warning text-dark" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                                            <button class="btn btn-sm btn-danger text-white" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#content -->
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../Scripts/js/income.js"></script>
+</body>
+
+</html>

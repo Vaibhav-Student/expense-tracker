@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports & Analytics - Expense Tracker</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../Content/css/style.css">
+</head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fa-solid fa-wallet"></i> Expense Tracker</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="Dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="Income.html"><i class="fa-solid fa-arrow-turn-down text-success"></i> Income</a>
+                </li>
+                <li>
+                    <a href="Expenses.html"><i class="fa-solid fa-arrow-trend-up text-danger"></i> Expenses</a>
+                </li>
+                <li>
+                    <a href="Categories.html"><i class="fa-solid fa-tags"></i> Categories</a>
+                </li>
+                <li class="active">
+                    <a href="Reports.html"><i class="fa-solid fa-chart-pie"></i> Reports</a>
+                </li>
+                <li>
+                    <a href="Settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+                </li>
+                <li>
+                    <a href="About.html"><i class="fa-solid fa-circle-info"></i> About</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar -->
+
+        <!-- Page Content -->
+        <div id="content">
+
+            <!-- Top Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <span class="navbar-brand mb-0 h1">Reports & Analytics</span>
+
+                    <div class="ms-auto d-flex align-items-center">
+                        <span class="me-3 text-muted d-none d-md-inline" id="currentDate">Date</span>
+
+                        <!-- Notifications -->
+                        <div class="nav-item position-relative me-3">
+                            <a class="nav-link text-secondary" href="#">
+                                <i class="fa-solid fa-bell fs-5"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    3+
+                                </span>
+                            </a>
+                        </div>
+
+                        <!-- Settings -->
+                        <div class="nav-item">
+                            <a class="nav-link text-secondary" href="Settings.html">
+                                <i class="fa-solid fa-gear fs-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <div class="container-fluid p-4">
+
+                <!-- Page Header -->
+                <div class="dashboard-header mb-4">
+                    <h2>Reports & Analytics</h2>
+                    <p class="mb-0 text-muted">View your income, expenses, and financial summary.</p>
+                </div>
+
+                <!-- Report Summary Cards Row -->
+                <div class="row mb-4">
+                    <!-- Total Income Card -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-success h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col me-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Total Income</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="cardTotalIncome">₹35,000</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-sack-dollar fa-2x text-success" style="opacity: 0.3;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Expense Card -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-danger h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col me-2">
+                                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                            Total Expense</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="cardTotalExpense">₹20,000</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-arrow-trend-up fa-2x text-danger" style="opacity: 0.3;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Current Balance Card -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-primary h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col me-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Current Balance</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="cardCurrentBalance">₹15,000</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-wallet fa-2x text-primary" style="opacity: 0.3;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Transactions Card -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-warning h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col me-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                            Total Transactions</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="cardTotalTransactions">35</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-receipt fa-2x text-warning" style="opacity: 0.3;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter Section -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body py-3">
+                        <form id="reportFilterForm" class="row g-3 align-items-center">
+                            <div class="col-md-4 col-lg-3">
+                                <label for="filterMonth" class="form-label mb-1 fw-bold text-secondary">Select Month</label>
+                                <select class="form-select" id="filterMonth">
+                                    <option value="All" selected>All Months</option>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 col-lg-3">
+                                <label for="filterYear" class="form-label mb-1 fw-bold text-secondary">Select Year</label>
+                                <select class="form-select" id="filterYear">
+                                    <option value="2025">2025</option>
+                                    <option value="2026" selected>2026</option>
+                                    <option value="2027">2027</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 col-lg-4 d-flex align-items-end gap-2 mt-auto">
+                                <button type="submit" class="btn btn-primary px-4 fw-semibold"><i class="fa-solid fa-filter me-1"></i> Apply Filter</button>
+                                <button type="button" class="btn btn-outline-secondary px-3" id="btnResetFilter"><i class="fa-solid fa-rotate-left me-1"></i> Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Chart Section (Row 1: Bar Chart & Pie Chart) -->
+                <div class="row mb-4">
+                    <!-- Chart 1: Income vs Expense (Bar Chart) -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-white py-3 border-bottom d-flex align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-chart-column me-2"></i>Income vs Expense</h6>
+                            </div>
+                            <div class="card-body">
+                                <div style="position: relative; height: 300px;">
+                                    <canvas id="incomeVsExpenseChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chart 2: Expense by Category (Pie Chart) -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-white py-3 border-bottom d-flex align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-chart-pie me-2"></i>Expense by Category</h6>
+                            </div>
+                            <div class="card-body">
+                                <div style="position: relative; height: 300px;">
+                                    <canvas id="expenseByCategoryChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart Section (Row 2: Monthly Expense Trend Line Chart) -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-white py-3 border-bottom d-flex align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-chart-line me-2"></i>Monthly Expense Trend</h6>
+                            </div>
+                            <div class="card-body">
+                                <div style="position: relative; height: 320px;">
+                                    <canvas id="monthlyTrendChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financial Summary & Quick Insights Row -->
+                <div class="row mb-4">
+                    <!-- Financial Summary Card -->
+                    <div class="col-lg-7 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-white py-3 border-bottom">
+                                <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-file-invoice-dollar me-2"></i>Financial Summary</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive p-0 shadow-none border-0">
+                                    <table class="table align-middle mb-0">
+                                        <tbody>
+                                            <tr>
+                                                <td class="fw-bold text-secondary"><i class="fa-solid fa-arrow-down text-success me-2"></i>Highest Income</td>
+                                                <td class="text-end fw-bold text-success fs-6">₹25,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold text-secondary"><i class="fa-solid fa-arrow-up text-danger me-2"></i>Highest Expense</td>
+                                                <td class="text-end fw-bold text-danger fs-6">₹2,500</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold text-secondary"><i class="fa-solid fa-calculator text-info me-2"></i>Average Monthly Expense</td>
+                                                <td class="text-end fw-bold text-dark fs-6">₹10,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold text-secondary"><i class="fa-solid fa-fire text-warning me-2"></i>Most Spending Category</td>
+                                                <td class="text-end fw-bold text-dark fs-6">Food 🍔</td>
+                                            </tr>
+                                            <tr class="table-light">
+                                                <td class="fw-bold text-primary fs-6"><i class="fa-solid fa-piggy-bank me-2"></i>Remaining Balance</td>
+                                                <td class="text-end fw-bold text-primary fs-5">₹15,000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Insights Card -->
+                    <div class="col-lg-5 mb-4">
+                        <div class="card shadow-sm h-100 border-top border-4 border-primary">
+                            <div class="card-header bg-white py-3 border-bottom">
+                                <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-lightbulb me-2"></i>Quick Insights</h6>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                        <span><i class="fa-solid fa-utensils text-danger me-2"></i>Highest Spending Category</span>
+                                        <span class="badge bg-danger rounded-pill fs-6 px-3">Food</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                        <span><i class="fa-solid fa-calendar-day text-info me-2"></i>Average Daily Expense</span>
+                                        <span class="fw-bold text-dark">₹350</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                        <span><i class="fa-solid fa-trophy text-warning me-2"></i>Best Saving Month</span>
+                                        <span class="badge bg-success rounded-pill fs-6 px-3">February</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                        <span><i class="fa-solid fa-vault text-primary me-2"></i>Current Savings</span>
+                                        <span class="fw-bold text-primary fs-5">₹15,000</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Expense Categories & Monthly Report Tables Row -->
+                <div class="row mb-4">
+                    <!-- Top Expense Categories Table -->
+                    <div class="col-lg-5 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-white py-3 border-bottom">
+                                <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-list-check me-2"></i>Top Expense Categories</h6>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive shadow-none p-0 border-0">
+                                    <table class="table table-hover align-middle mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th class="ps-3">Category</th>
+                                                <th>Total Amount</th>
+                                                <th>Percentage</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="ps-3 fw-bold text-dark">🍔 Food</td>
+                                                <td>₹6,000</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="progress flex-grow-1" style="height: 8px;">
+                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 30%;"></div>
+                                                        </div>
+                                                        <span class="fw-semibold text-secondary small">30%</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-3 fw-bold text-dark">💡 Bills</td>
+                                                <td>₹5,000</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="progress flex-grow-1" style="height: 8px;">
+                                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 25%;"></div>
+                                                        </div>
+                                                        <span class="fw-semibold text-secondary small">25%</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-3 fw-bold text-dark">🛍 Shopping</td>
+                                                <td>₹4,000</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="progress flex-grow-1" style="height: 8px;">
+                                                            <div class="progress-bar bg-success" role="progressbar" style="width: 20%;"></div>
+                                                        </div>
+                                                        <span class="fw-semibold text-secondary small">20%</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-3 fw-bold text-dark">🚌 Travel</td>
+                                                <td>₹3,000</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="progress flex-grow-1" style="height: 8px;">
+                                                            <div class="progress-bar bg-info" role="progressbar" style="width: 15%;"></div>
+                                                        </div>
+                                                        <span class="fw-semibold text-secondary small">15%</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-3 fw-bold text-dark">💊 Medical</td>
+                                                <td>₹2,000</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="progress flex-grow-1" style="height: 8px;">
+                                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 10%;"></div>
+                                                        </div>
+                                                        <span class="fw-semibold text-secondary small">10%</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Monthly Report Table -->
+                    <div class="col-lg-7 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-white py-3 border-bottom">
+                                <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-calendar-days me-2"></i>Monthly Report Table</h6>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive shadow-none p-0 border-0">
+                                    <table class="table table-hover table-striped align-middle mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th class="ps-4">Month</th>
+                                                <th>Income</th>
+                                                <th>Expense</th>
+                                                <th>Balance</th>
+                                                <th class="text-end pe-4">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="ps-4 fw-bold text-dark">January</td>
+                                                <td class="text-success fw-semibold">₹30,000</td>
+                                                <td class="text-danger fw-semibold">₹20,000</td>
+                                                <td class="fw-bold">₹10,000</td>
+                                                <td class="text-end pe-4"><span class="badge bg-success px-3 py-1">Profit</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-4 fw-bold text-dark">February</td>
+                                                <td class="text-success fw-semibold">₹28,000</td>
+                                                <td class="text-danger fw-semibold">₹18,000</td>
+                                                <td class="fw-bold">₹10,000</td>
+                                                <td class="text-end pe-4"><span class="badge bg-success px-3 py-1">Profit</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-4 fw-bold text-dark">March</td>
+                                                <td class="text-success fw-semibold">₹32,000</td>
+                                                <td class="text-danger fw-semibold">₹25,000</td>
+                                                <td class="fw-bold">₹7,000</td>
+                                                <td class="text-end pe-4"><span class="badge bg-success px-3 py-1">Profit</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-4 fw-bold text-dark">April</td>
+                                                <td class="text-success fw-semibold">₹29,000</td>
+                                                <td class="text-danger fw-semibold">₹19,000</td>
+                                                <td class="fw-bold">₹10,000</td>
+                                                <td class="text-end pe-4"><span class="badge bg-success px-3 py-1">Profit</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-4 fw-bold text-dark">May</td>
+                                                <td class="text-success fw-semibold">₹35,000</td>
+                                                <td class="text-danger fw-semibold">₹22,000</td>
+                                                <td class="fw-bold">₹13,000</td>
+                                                <td class="text-end pe-4"><span class="badge bg-success px-3 py-1">Profit</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /Container Fluid -->
+        </div>
+        <!-- /#content -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom Script -->
+    <script src="../Scripts/js/reports.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Management - Expense Tracker</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../Content/css/style.css">
+</head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fa-solid fa-wallet"></i> Expense Tracker</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="Dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="Income.html"><i class="fa-solid fa-arrow-turn-down text-success"></i> Income</a>
+                </li>
+                <li class="active">
+                    <a href="Expenses.html"><i class="fa-solid fa-arrow-trend-up text-danger"></i> Expenses</a>
+                </li>
+                <li>
+                    <a href="Categories.html"><i class="fa-solid fa-tags"></i> Categories</a>
+                </li>
+                <li>
+                    <a href="Reports.html"><i class="fa-solid fa-chart-pie"></i> Reports</a>
+                </li>
+                <li>
+                    <a href="Settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+                </li>
+                <li>
+                    <a href="About.html"><i class="fa-solid fa-circle-info"></i> About</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar -->
+
+        <!-- Page Content -->
+        <div id="content">
+
+            <!-- Top Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <span class="navbar-brand mb-0 h1">Expense Management</span>
+
+                    <div class="ms-auto d-flex align-items-center">
+                        <span class="me-3 text-muted d-none d-md-inline" id="currentDate">Date</span>
+
+                        <!-- Notifications -->
+                        <div class="nav-item position-relative me-3">
+                            <a class="nav-link text-secondary" href="#">
+                                <i class="fa-solid fa-bell fs-5"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    3+
+                                </span>
+                            </a>
+                        </div>
+
+                        <!-- Settings -->
+                        <div class="nav-item">
+                            <a class="nav-link text-secondary" href="Settings.html">
+                                <i class="fa-solid fa-gear fs-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <div class="container-fluid p-4">
+
+                <!-- Page Header -->
+                <div class="dashboard-header mb-4 d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2>Expense Management</h2>
+                        <p class="mb-0 text-muted">Manage your daily expenses efficiently.</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#addExpenseForm" aria-expanded="false" aria-controls="addExpenseForm">
+                            <i class="fa-solid fa-plus"></i> Add Expense
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Summary Cards Row -->
+                <div class="row mb-4">
+                    <!-- Total Expenses Card -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-danger h-100 py-2" style="border-left: 4px solid #e74a3b;">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                            Total Expenses</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">₹18,500</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-money-bill-transfer fa-2x text-gray-300" style="color: #dddfeb;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- This Month Expense Card -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-warning h-100 py-2" style="border-left: 4px solid #f6c23e;">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                            This Month Expense</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">₹12,000</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-calendar-minus fa-2x text-gray-300" style="color: #dddfeb;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Today's Expense Card -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-primary h-100 py-2" style="border-left: 4px solid #4e73df;">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Today's Expense</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">₹850</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-clock fa-2x text-gray-300" style="color: #dddfeb;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Expense Records Card -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-info h-100 py-2" style="border-left: 4px solid #36b9cc;">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1" style="color: #36b9cc;">
+                                            Total Expense Records</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">15</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-file-invoice fa-2x text-gray-300" style="color: #dddfeb;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Expense Form (Collapsible) -->
+                <div class="collapse mb-4" id="addExpenseForm">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-white py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-danger">Add New Expense</h6>
+                        </div>
+                        <div class="card-body">
+                            <form id="expenseForm">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="expenseAmount" class="form-label">Expense Amount (₹)</label>
+                                        <input type="number" class="form-control" id="expenseAmount" placeholder="Enter amount" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="expenseCategory" class="form-label">Category</label>
+                                        <select class="form-select" id="expenseCategory" required>
+                                            <option value="" selected disabled>Select Category</option>
+                                            <option value="Food">Food</option>
+                                            <option value="Shopping">Shopping</option>
+                                            <option value="Travel">Travel</option>
+                                            <option value="Medical">Medical</option>
+                                            <option value="Bills">Bills</option>
+                                            <option value="Entertainment">Entertainment</option>
+                                            <option value="Education">Education</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <label for="paymentMethod" class="form-label">Payment Method</label>
+                                        <select class="form-select" id="paymentMethod" required>
+                                            <option value="" selected disabled>Select Method</option>
+                                            <option value="Cash">Cash</option>
+                                            <option value="UPI">UPI</option>
+                                            <option value="Credit Card">Credit Card</option>
+                                            <option value="Debit Card">Debit Card</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="expenseDate" class="form-label">Date</label>
+                                        <input type="date" class="form-control" id="expenseDate" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="expenseDescription" class="form-label">Description</label>
+                                        <input type="text" class="form-control" id="expenseDescription" placeholder="Enter description">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end gap-2">
+                                    <button type="reset" class="btn btn-secondary">Clear</button>
+                                    <button type="submit" class="btn btn-danger">Save Expense</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search and Filter Section -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header py-3 bg-white d-flex flex-column flex-md-row align-items-md-center justify-content-between border-bottom">
+                        <h6 class="m-0 font-weight-bold text-primary mb-3 mb-md-0">Expense Records</h6>
+
+                        <div class="d-flex flex-column flex-md-row gap-2">
+                            <!-- Search -->
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search expense by category...">
+                                <button class="btn btn-outline-secondary" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                            <!-- Category Filter -->
+                            <select class="form-select w-auto">
+                                <option value="All">Category: All</option>
+                                <option value="Food">Food</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Medical">Medical</option>
+                                <option value="Bills">Bills</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Education">Education</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <!-- Payment Method Filter -->
+                            <select class="form-select w-auto">
+                                <option value="All">Payment: All</option>
+                                <option value="Cash">Cash</option>
+                                <option value="UPI">UPI</option>
+                                <option value="Credit Card">Credit Card</option>
+                                <option value="Debit Card">Debit Card</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Expense Table -->
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped align-middle mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th class="ps-4">Expense ID</th>
+                                        <th>Date</th>
+                                        <th>Category</th>
+                                        <th>Description</th>
+                                        <th>Payment Method</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Record 1 -->
+                                    <tr>
+                                        <td class="ps-4 fw-bold text-muted">1</td>
+                                        <td>21-07-2026</td>
+                                        <td><span class="badge bg-primary">Food</span></td>
+                                        <td>Lunch</td>
+                                        <td><span class="badge bg-secondary">UPI</span></td>
+                                        <td class="fw-bold text-danger">₹250</td>
+                                        <td><span class="text-success"><i class="fa-solid fa-circle-check"></i> Paid</span></td>
+                                        <td class="text-center">
+                                            <button class="btn btn-sm btn-info text-white" title="View"><i class="fa-solid fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-warning text-dark" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                                            <button class="btn btn-sm btn-danger text-white" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <!-- Record 2 -->
+                                    <tr>
+                                        <td class="ps-4 fw-bold text-muted">2</td>
+                                        <td>22-07-2026</td>
+                                        <td><span class="badge bg-info">Travel</span></td>
+                                        <td>Bus Ticket</td>
+                                        <td><span class="badge bg-secondary">Cash</span></td>
+                                        <td class="fw-bold text-danger">₹120</td>
+                                        <td><span class="text-success"><i class="fa-solid fa-circle-check"></i> Paid</span></td>
+                                        <td class="text-center">
+                                            <button class="btn btn-sm btn-info text-white" title="View"><i class="fa-solid fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-warning text-dark" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                                            <button class="btn btn-sm btn-danger text-white" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <!-- Record 3 -->
+                                    <tr>
+                                        <td class="ps-4 fw-bold text-muted">3</td>
+                                        <td>24-07-2026</td>
+                                        <td><span class="badge bg-success">Shopping</span></td>
+                                        <td>T-Shirt</td>
+                                        <td><span class="badge bg-secondary">Credit Card</span></td>
+                                        <td class="fw-bold text-danger">₹950</td>
+                                        <td><span class="text-success"><i class="fa-solid fa-circle-check"></i> Paid</span></td>
+                                        <td class="text-center">
+                                            <button class="btn btn-sm btn-info text-white" title="View"><i class="fa-solid fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-warning text-dark" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                                            <button class="btn btn-sm btn-danger text-white" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <!-- Record 4 -->
+                                    <tr>
+                                        <td class="ps-4 fw-bold text-muted">4</td>
+                                        <td>25-07-2026</td>
+                                        <td><span class="badge bg-warning text-dark">Medical</span></td>
+                                        <td>Medicine</td>
+                                        <td><span class="badge bg-secondary">UPI</span></td>
+                                        <td class="fw-bold text-danger">₹450</td>
+                                        <td><span class="text-success"><i class="fa-solid fa-circle-check"></i> Paid</span></td>
+                                        <td class="text-center">
+                                            <button class="btn btn-sm btn-info text-white" title="View"><i class="fa-solid fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-warning text-dark" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                                            <button class="btn btn-sm btn-danger text-white" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expense Statistics Section -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header py-3 bg-white border-bottom">
+                        <h6 class="m-0 font-weight-bold text-primary">Expense Statistics</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <div class="col-md-3 col-sm-6 mb-3 mb-md-0 border-end">
+                                <div class="text-muted small text-uppercase fw-bold mb-1">Highest Expense</div>
+                                <div class="h4 mb-0 text-danger fw-bold">₹950</div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 mb-3 mb-md-0 border-end">
+                                <div class="text-muted small text-uppercase fw-bold mb-1">Lowest Expense</div>
+                                <div class="h4 mb-0 text-success fw-bold">₹120</div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 mb-3 mb-md-0 border-end">
+                                <div class="text-muted small text-uppercase fw-bold mb-1">Average Expense</div>
+                                <div class="h4 mb-0 text-primary fw-bold">₹442</div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 mb-0">
+                                <div class="text-muted small text-uppercase fw-bold mb-1">Most Used Category</div>
+                                <div class="h4 mb-0 text-info fw-bold">Food</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#content -->
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../Scripts/js/expenses.js"></script>
+</body>
+
+</html>
