@@ -65,10 +65,19 @@
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\packages\MySql.Data.8.0.33\lib\net462\MySql.Data.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\style.css" />
     <Content Include="Expence_Traker\Views\Dashboard.html" />
+    <Content Include="Handlers\CategoryHandler.ashx" />
+    <Content Include="Handlers\ExpenseHandler.ashx" />
+    <Content Include="Handlers\IncomeHandler.ashx" />
+    <Content Include="Handlers\DashboardHandler.ashx" />
+    <Content Include="Handlers\SettingsHandler.ashx" />
+    <Content Include="Handlers\ReportHandler.ashx" />
     <Content Include="index.html" />
     <Content Include="Scripts\js\about.js" />
     <Content Include="Scripts\js\categories.js" />
@@ -88,6 +97,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\DbHelper.cs" />
+    <Compile Include="Handlers\CategoryHandler.ashx.cs">
+      <DependentUpon>CategoryHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\ExpenseHandler.ashx.cs">
+      <DependentUpon>ExpenseHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\IncomeHandler.ashx.cs">
+      <DependentUpon>IncomeHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\DashboardHandler.ashx.cs">
+      <DependentUpon>DashboardHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\SettingsHandler.ashx.cs">
+      <DependentUpon>SettingsHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\ReportHandler.ashx.cs">
+      <DependentUpon>ReportHandler.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

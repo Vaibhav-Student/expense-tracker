@@ -57,3 +57,7 @@ D:\Education\MCA\Sem_3\ASP NET\tiny_project\Expence_Traker\Expence_Traker\obj\De
 D:\Education\MCA\Sem_3\ASP NET\tiny_project\Expence_Traker\Expence_Traker\obj\Debug\Expence_.4A5827E0.Up2Date
 D:\Education\MCA\Sem_3\ASP NET\tiny_project\Expence_Traker\Expence_Traker\obj\Debug\Expence_Traker.dll
 D:\Education\MCA\Sem_3\ASP NET\tiny_project\Expence_Traker\Expence_Traker\obj\Debug\Expence_Traker.pdb
+D:\Education\MCA\Sem_3\ASP NET\tiny_project\Expence_Traker\Expence_Traker\bin\MySql.Data.dll
+D:\Education\MCA\Sem_3\ASP NET\tiny_project\Expence_Traker\Expence_Traker\bin\System.Memory.dll
+D:\Education\MCA\Sem_3\ASP NET\tiny_project\Expence_Traker\Expence_Traker\bin\System.Numerics.Vectors.dll
+D:\Education\MCA\Sem_3\ASP NET\tiny_project\Expence_Traker\Expence_Traker\bin\MySql.Data.xml
