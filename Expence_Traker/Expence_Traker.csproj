@@ -76,23 +76,18 @@
     <Content Include="Handlers\ExpenseHandler.ashx" />
     <Content Include="Handlers\IncomeHandler.ashx" />
     <Content Include="Handlers\DashboardHandler.ashx" />
-    <Content Include="Handlers\SettingsHandler.ashx" />
     <Content Include="Handlers\ReportHandler.ashx" />
     <Content Include="index.html" />
-    <Content Include="Scripts\js\about.js" />
     <Content Include="Scripts\js\categories.js" />
     <Content Include="Scripts\js\dashboard.js" />
     <Content Include="Scripts\js\expenses.js" />
     <Content Include="Scripts\js\income.js" />
     <Content Include="Scripts\js\reports.js" />
-    <Content Include="Scripts\js\settings.js" />
-    <Content Include="Views\About.html" />
     <Content Include="Views\Categories.html" />
     <Content Include="Views\Dashboard.html" />
     <Content Include="Views\Expenses.html" />
     <Content Include="Views\Income.html" />
     <Content Include="Views\Reports.html" />
-    <Content Include="Views\Settings.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -109,9 +104,6 @@
     </Compile>
     <Compile Include="Handlers\DashboardHandler.ashx.cs">
       <DependentUpon>DashboardHandler.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="Handlers\SettingsHandler.ashx.cs">
-      <DependentUpon>SettingsHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\ReportHandler.ashx.cs">
       <DependentUpon>ReportHandler.ashx</DependentUpon>
